@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navbar } from "../../components/Navbar"
 
 export default function Contact() {
 
@@ -12,7 +13,7 @@ export default function Contact() {
     const [errors, setErrors] = useState({});
 
     //   Setting button text on form submission
-    const [buttonText, setButtonText] = useState("Send");
+    const [buttonText, setButtonText] = useState("Wyślij");
 
     // Setting success or failure messages states
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -72,7 +73,7 @@ export default function Contact() {
             console.log(error);
             setShowSuccessMessage(false);
             setShowFailureMessage(true);
-            setButtonText("Send");
+            setButtonText("Wyślij");
 
             // Reset form fields
             setFullname("");
@@ -83,7 +84,7 @@ export default function Contact() {
           }
           setShowSuccessMessage(true);
           setShowFailureMessage(false);
-          setButtonText("Send");
+          setButtonText("Wyślij");
 
           // Reset form fields
           setFullname("");
@@ -97,12 +98,13 @@ export default function Contact() {
 
   return (
     <>
-        <form onSubmit={handleSubmit} className="flex w-full max-w-sm space-x-3">
-            <div className="w-full max-w-2xl px-5 py-10 m-auto mt-10 bg-white rounded-lg shadow dark:bg-gray-800">
-                <div className="mb-6 text-3xl font-light text-center text-gray-800 dark:text-white">
+        <Navbar/>
+        <form onSubmit={handleSubmit} className="flex w-full px-2">
+            <div className="w-full max-w-4xl px-5 py-10 m-auto mt-10 bg-white rounded-2xl shadow-xl">
+                <div className="mb-6 text-3xl font-light text-center text-gray-800">
                     Skontaktuj się z nami!
                 </div>
-                <div className="grid max-w-xl grid-cols-2 gap-4 m-auto">
+                <div className="grid max-w-2xl grid-cols-2 gap-4 m-auto">
                     <div className="col-span-2 lg:col-span-1">
                         <div className=" relative ">
                             <input
@@ -112,7 +114,7 @@ export default function Contact() {
                                 onChange={(e) => {
                                   setFullname(e.target.value);
                                 }}
-                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-400 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                                 placeholder="Imię i nazwisko" />
                         </div>
                     </div>
@@ -125,7 +127,7 @@ export default function Contact() {
                                 onChange={(e) => {
                                   setEmail(e.target.value);
                                 }}
-                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-400 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                                 placeholder="Adres email" />
                         </div>
                     </div>
@@ -138,7 +140,7 @@ export default function Contact() {
                                 onChange={(e) => {
                                   setSubject(e.target.value);
                                 }}
-                                className="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                className="rounded-lg border-transparent flex-1 appearance-none border border-gray-400 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                                 placeholder="Temat" />
                         </label>
                     </div>
@@ -154,7 +156,7 @@ export default function Contact() {
                                 }}
                                 rows="5"
                                 cols="40"
-                                className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                className="flex-1 appearance-none border border-gray-400 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                             </textarea>
                         </label>
                     </div>
@@ -169,12 +171,12 @@ export default function Contact() {
             <div className="text-left">
             {showSuccessMessage && (
               <p className="text-green-500 font-semibold text-sm my-2">
-                Thankyou! Your Message has been delivered.
+                Dziękuje! Twoja wiadomość została dostarczona.
               </p>
             )}
             {showFailureMessage && (
               <p className="text-red-500">
-                Oops! Something went wrong, please try again.
+                Oops! Coś poszło nie tak, spróbuj jeszcze raz.
               </p>
             )}
           </div>

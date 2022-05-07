@@ -1,5 +1,6 @@
 import React from "react"
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import Link from 'next/link'
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { useRef } from "react";
@@ -34,17 +35,10 @@ export const Navbar = () => {
 							</div>
 							<div className="hidden md:block">
 								<div className="ml-10 flex items-baseline space-x-4">
-									<Link
-										activeClass="Home"
-										to="about"
-										smooth={true}
-										offset={50}
-										duration={500}
-										className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-									>
-										Strona Główna
+									<Link href="/">
+										<a className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium">Strona Główna</a>
 									</Link>
-									<Link
+									<ScrollLink
 										activeClass="about"
 										to="about"
 										smooth={true}
@@ -53,8 +47,8 @@ export const Navbar = () => {
 										className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 									>
 										O nas
-									</Link>
-									<Link
+									</ScrollLink>
+									<ScrollLink
 										activeClass="offer"
 										to="offer"
 										smooth={true}
@@ -63,9 +57,9 @@ export const Navbar = () => {
 										className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 									>
 										Usługi
-									</Link>
+									</ScrollLink>
 
-									<Link
+									<ScrollLink
 										activeClass="location"
 										to="location"
 										smooth={true}
@@ -74,17 +68,10 @@ export const Navbar = () => {
 										className="cursor-pointer hover:bg-blue-600 text-black hover:text-white px-3 py-2 rounded-md text-sm font-medium"
 									>
 										Lokalizacja
-									</Link>
+									</ScrollLink>
 
-									<Link
-										activeClass="contact"
-										to="contact"
-										smooth={true}
-										offset={50}
-										duration={500}
-										className="cursor-pointer bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-black"
-									>
-										Kontakt
+									<Link href="/contact">
+										<a className="cursor-pointer bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-black">Kontakt</a>
 									</Link>
 								</div>
 							</div>
@@ -151,7 +138,7 @@ export const Navbar = () => {
 								ref={divRef}
 								className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3"
 							>
-								<Link
+								<ScrollLink
 									href="/home"
 									activeClass="home"
 									to="home"
@@ -161,8 +148,8 @@ export const Navbar = () => {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Strona główna
-								</Link>
-								<Link
+								</ScrollLink>
+								<ScrollLink
 									href="/about"
 									activeClass="about"
 									to="about"
@@ -172,9 +159,9 @@ export const Navbar = () => {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									About
-								</Link>
+								</ScrollLink>
 
-								<Link
+								<ScrollLink
 									href="/work"
 									activeClass="work"
 									to="work"
@@ -184,8 +171,8 @@ export const Navbar = () => {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Projects
-								</Link>
-								<Link
+								</ScrollLink>
+								<ScrollLink
 									href="/services"
 									activeClass="services"
 									to="services"
@@ -195,9 +182,9 @@ export const Navbar = () => {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Services
-								</Link>
+								</ScrollLink>
 
-								<Link
+								<ScrollLink
 									href="/contact"
 									activeClass="work"
 									to="work"
@@ -207,7 +194,7 @@ export const Navbar = () => {
 									className="cursor-pointer hover:bg-blue-600 text-black hover:text-white block px-3 py-2 rounded-md text-base font-medium"
 								>
 									Contact
-								</Link>
+								</ScrollLink>
 							</div>
 						</div>
 					)}
